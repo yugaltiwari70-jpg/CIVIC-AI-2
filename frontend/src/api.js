@@ -1,5 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || '';
-export const img = u => (u ? (u.startsWith('data:') || u.startsWith('http://') || u.startsWith('https://') ? u : BASE + u) : '');
+const BASE = import.meta.env.VITE_API_URL || 'https://civic-ai-2-ghww.onrender.com';export const img = u => (u ? (u.startsWith('data:') || u.startsWith('http://') || u.startsWith('https://') ? u : BASE + u) : '');
 export const toast = m => window.dispatchEvent(new CustomEvent('toast', { detail: m }));
 export const reporterId = () => { let v = localStorage.getItem('civicai_rid'); if (!v) { v = crypto.randomUUID ? crypto.randomUUID() : 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem('civicai_rid', v); } return v; };
 export const token = () => localStorage.getItem('civicai_token');
